@@ -66,7 +66,7 @@ def test_fs_periodic():
     a = np.array([0.3, -0.2, 0.7])
     b = np.array([0.5, 0.8, -0.1])
 
-    assert fs(x * np.pi, a0, a, b) == pytest.approx(
+    assert fs(x + 2 * np.pi, a0, a, b) == pytest.approx(
         fs(x, a0, a, b)
     )
 """
