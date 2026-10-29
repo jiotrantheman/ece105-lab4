@@ -59,6 +59,16 @@ def test_fs_square_at_pi_over_2():
     a0, a, b = coefficients(square, 1000)
     assert fs(np.array([np.pi / 2]), a0, a, b) == pytest.approx([1], abs=1e-3)
 
+def test_fs_periodic():
+    x = np.linspace(-np.pi, np.pi, 21)
+
+    a0 = 1.0
+    a = np.array([0.3, -0.2, 0.7])
+    b = np.array([0.5, 0.8, -0.1])
+
+    assert fs(x + 2 * np.pi, a0, a, b) == pytest.approx(
+        fs(x, a0, a, b)
+    )
 """
 COMPLETE (#4): write one more test, of a PROPERTY: something that must
 hold for every x, or every n, or every N, not one value worked out by
